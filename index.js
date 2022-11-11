@@ -14,7 +14,7 @@ const https = require('./https')
 
 function caijiVideo(page){
     // var url = `https://v.qq.com/x/bu/pagesheet/list?append=1&channel=movie&itype=100062&listpage=1&offset=${page}&pagesize=3`
-    var url = `https://v.qq.com/x/cover/324olz7ilvo2j5f/i00350r6rf4.html`
+    var url = `https://v.qq.com/x/cover/m441e3rjq9kwpsc.html`
     https.download(url, (data)=>{
         const s = data.indexOf('video_ids')
         const arr = data.split('video_ids');
@@ -24,7 +24,7 @@ function caijiVideo(page){
         const mstr = endstr.replace(/"/g, "")
         const ends = mstr.split(',')
         const g = ends.map(vm => {
-            const s = url.lastIndexOf('/')
+            const s = url.lastIndexOf('.html')
             vm = url.slice(0, s) + '/' + vm + '.html'
             return vm
         })
